@@ -7,50 +7,30 @@
 </head>
 
 <body>
-    <div id="container">
-        <div id="name">
-            <h1 id="h1-name">
-                left most calcultor name
-            </h1>
-        </div>  
+    <div id="calculator" class="row">
+        <input id="display" readonly>
 
-        <div id="display">
-            display
-        </div>
-
-        <div id="buttons">
-            <div id="btn-7-divide">
-                <button id="7">7</button>
-                <button id="8">8</button>
-                <button id="9">9</button>
-                <button id="/">÷</button>
+        <div id="container" class="col-10">
+            <div id="keys" class="row">
+                <button onclick="clear()">C</button>
+                <button onclick="appendToDisplay('7')">7</button>
+                <button onclick="appendToDisplay('8')">8</button>
+                <button onclick="appendToDisplay('9')">9</button>
+                <button onclick="appendToDisplay('/')">/</button>
+                <button onclick="appendToDisplay('4')">4</button>
+                <button onclick="appendToDisplay('5')">5</button>
+                <button onclick="appendToDisplay('6')">6</button>
+                <button onclick="appendToDisplay('*')">*</button>
+                <button onclick="appendToDisplay('1')">1</button>
+                <button onclick="appendToDisplay('2')">2</button>
+                <button onclick="appendToDisplay('3')">3</button>
+                <button onclick="appendToDisplay('-')">-</button>
+                <button onclick="appendToDisplay('0')">0</button>
+                <button onclick="calculate()">=</button>
+                <button onclick="appendToDisplay('+')">+</button>
             </div>
-
-            <div id="btn-4-times">
-                <button id="4">4</button>
-                <button id="5">5</button>
-                <button id="6">6</button>
-                <button id="*">×</button>
-            </div>
-
-            <div id="btn-1-minus">
-                <button id="1">1</button>
-                <button id="2">2</button>
-                <button id="3">3</button>
-                <button id="-">−</button>
-            </div>            
-
-            <div id="btn-clear-plus">
-                <button id="c">C</button>
-                <button id="0">0</button>
-                <button id="=">=</button>
-                <button id="+">+</button>
-            </div>            
         </div>
-
-
     </div>
-
     <script type="text/Javascript" src="script.js" ></script>
 </body>
 
