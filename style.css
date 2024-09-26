@@ -1,0 +1,38 @@
+button{
+    background-color: rgb(161, 161, 161);
+    padding: 5px;
+    margin: 2px 1px;
+    width: 20%;
+    height: 20%;
+}
+button:hover{
+    background-color: rgb(153, 153, 153);
+}
+button:active{
+    background-color: rgb(65, 65, 75);
+}
+.btn-color-tan{
+    background-color: #D8CDB1;
+}
+.btn-color-tan:hover{
+    background-color: #B7AC8D;
+}
+.btn-color-tan:active{
+    background-color: #797361;
+}
+
+#calculator{
+    margin:auto;
+    display:block;
+    background-color: rgb(55, 61, 69);
+    border: 4px solid rgb(34, 34, 41);
+    border-radius: 4px;
+    padding: 5px;
+    width: 200px;
+    height: 200px;
+}
+#display{
+    text-align: right;
+    height: 10%;
+    width: 90%;
+}
