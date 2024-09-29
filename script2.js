@@ -1,7 +1,7 @@
 const display = document.getElementById("display");
 
 // console.dir(button);
-let Display = display.value;
+let Display = 0;
 function appendToDisplay(input) {
     if(display.value === "0" || display.value === "ERROR"){
         if(display.value === "."){
@@ -33,9 +33,6 @@ function calculate() {
     }
     catch(error){
         display.value = "ERROR";
-    }
-    function deleteFromDisplay (){
-        display.value = Display.slice(0,-1);
     }
 
 }
