@@ -1,0 +1,15 @@
+{
+    "title": "Calculator App",
+    "users": [
+        {
+            "name": "Liam",
+            "age": 15,
+            "location": "Lake Charles"
+        },
+        {
+            "name": "James",
+            "age": 24,
+            "location": "Chicago"
+        }
+    ]
+}
