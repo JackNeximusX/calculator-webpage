@@ -47,9 +47,10 @@ button:active{
     height: 40px;
     width: 350px;
     margin-left: 5px;
+    text-size-adjust: 10px;
 }
 html{
-    background-color: rgb(0, 0, 0);
+    background-color: #070707e2;
     color: #cecef9;
 }
 .gold-btn{
