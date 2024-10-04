@@ -1,38 +1,43 @@
 const display = document.getElementById("display");
+let x = 0;
 
-// console.dir(button);
-let Display = 0;
-function appendToDisplay(input) {
-    if(display.value === "0" || display.value === "ERROR"){
-        if(display.value === "."){
-            display.value = "0.";
-        }
-        else{
-        display.value = "";
-        display.value += input;
-        }
+function addDigitCal(input) {
+    display.value += input;
+}
+
+function addDecimal(input) {
+
+    let decimalCheck = (display.value.match(/\./g) || []).length >= 1;
+
+    if (decimalCheck) {
+        display.value = display.value
+    } else {
+        display.value += input; 
     }
-    else {
-        display.value += input;
-    }
+}
+
+function operation(input) {
+
+    x = display.value; 
+
+
+    display.value = 0;
+
+
+    x = x += input;
+
+    display.value = x;
+}
+
+function calculation(input){
+
+    
 }
 
 function clearDisplay() {
-    display.value = "0";
-}
-
-
-function calculate() {
-    try{
-        if(display.value === "0"){
-            display.value = "0";
-        }
-        else {
-                display.value = eval(display.value);
-        }
-    }
-    catch(error){
-        display.value = "ERROR";
-    }
 
 }
+
+
+
+

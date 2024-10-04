@@ -47,7 +47,7 @@ button:active{
     height: 40px;
     width: 350px;
     margin-left: 5px;
-    text-size-adjust: 10px;
+    font-size: 40px;
 }
 html{
     background-color: #070707e2;
