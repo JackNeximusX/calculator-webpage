@@ -1,8 +1,34 @@
+:root{
+    --light-blue:#658eff;
+    --neon-blue:#a5d6ff;
+    --pure-blue:#0533ff;
+
+
+    --light-gold:#00ff6ee3;
+    --neon-gold:#fbffc5;
+    --pure-gold:#22ff00ea;
+
+
+    --light-pink:#ff366b;
+    --neon-pink:#d2769f;
+    --pure-pink:#ff2942;
+
+    --bright-white:#effeff;
+    --neon-gray:#cfdee3c3;
+
+    --steel-neon-blue:#a1c1ddf1;
+}
+
+
+
+
+
+
 button{
-    box-shadow: 2px 4px 10px #6380ff87;
-    text-shadow: 2px 2px 3px #6380ffd6;
-    color:#babaf5;
-    border: 3px solid #babaf5;
+    box-shadow: 2px 4px 10px var(--light-blue);
+    text-shadow: 2px 2px 3px var(--light-blue);
+    color:var(--light-blue);
+    border: 3px solid var(--light-blue);
     border-radius: 50px;
     padding: 5px;
     margin: 2px 1px;
@@ -11,24 +37,24 @@ button{
     background-color: #00000000;
 }
 button:hover{
-    text-shadow: 2px 2px 3px #bbc8ffe8;
-    color: #ceceff;
-    border: 3px solid rgb(210, 232, 255); 
-    box-shadow: 2px 4px 10px #f1faff;
+    text-shadow: 2px 2px 3px var(--neon-blue);
+    color: var(--neon-blue);
+    border: 3px solid var(--neon-blue); 
+    box-shadow: 2px 4px 10px var(--neon-blue);
 }
 button:active{
-    text-shadow: 2px 2px 3px #341fd6b3;
-    color: #8a00fb;
-    border: 3px solid  #8a00fb; 
-    box-shadow: 2px 4px 10px #341fd6b3;
+    text-shadow: 2px 2px 3px var(--pure-blue);
+    color: var(--pure-blue);
+    border: 3px solid  var(--pure-blue); 
+    box-shadow: 2px 4px 10px var(--pure-blue);
 }
 #keys{
     margin-left: 2px;
 }
 #calculator{
-    background-color: #02092a2e;
-    border: 3px solid rgb(163, 187, 176); 
-    box-shadow: 2px 4px 10px #bcb6b6;
+    background-color: #1101012f;
+    border: 3px solid var(--bright-white); 
+    box-shadow: 2px 4px 10px var(--bright-white);
     margin:auto;
     display:block;
     border-radius: 4px;
@@ -37,11 +63,11 @@ button:active{
     height: 450px;
 }
 #display{
-    color:#cecef9;
-    background-color: rgba(0, 3, 43, 0.206);
-    border: 3px solid rgb(186, 225, 245); 
-    box-shadow: 1px 1px 2px #60bfff;
-    text-shadow: 1px 1px 2px #bbe5ffe8;
+    color: var(--neon-gray);
+    background-color: rgba(10, 8, 8, 0.096);
+    border: 3px solid var(--steel-neon-blue); 
+    box-shadow: 1px 1px 2px var(--steel-neon-blue);
+    text-shadow: 1px 1px 10px var(--neon-gray);
     border-radius: 10px;
     text-align: right;
     height: 40px;
@@ -50,42 +76,41 @@ button:active{
     font-size: 40px;
 }
 html{
-    background-color: #070707e2;
-    color: #cecef9;
+    background-color: #030110;
 }
 .gold-btn{
-    color: #ffe761;
-    text-shadow: 2px 2px 3px #ffdf2a;
-    border-color: #ffe23e;
-    box-shadow: 2px 4px 10px #ffc83c;
+    color: var(--light-gold);
+    text-shadow: 2px 2px 3px var(--light-gold);
+    border-color: var(--light-gold);
+    box-shadow: 2px 4px 10px var(--light-gold);
 }
 .gold-btn:hover{
-    color: #F9E7D2;
-    text-shadow: 2px 2px 3px #F1E8F5;
-    border-color: #F9E7D2;
-    box-shadow: 2px 4px 10px #F1E8F5;
+    color: var(--neon-gold);
+    text-shadow: 2px 2px 3px var(--neon-gold);
+    border-color: var(--neon-gold);
+    box-shadow: 2px 4px 10px var(--neon-gold);
 }
 .gold-btn:active{
-    color: #09ff00;
-    text-shadow: 2px 2px 4px #00ff04;
-    border-color: #09ff00;
-    box-shadow: 2px 4px 12px #04ff00;
+    color: var(--pure-gold);
+    text-shadow: 2px 2px 4px var(--pure-gold);
+    border-color: var(--pure-gold);
+    box-shadow: 2px 4px 12px var(--pure-gold);
 }
 .pink-btn{
-    color: #c8356dd3;
-    text-shadow: 2px 2px 3px #e14581c5;
-    border-color: #c8356dd3;
-    box-shadow: 2px 4px 10px #fe0380;
+    color: var(--light-pink);
+    text-shadow: 2px 2px 3px var(--light-pink);
+    border-color: var(--light-pink);
+    box-shadow: 2px 4px 10px var(--light-pink);
 }
 .pink-btn:hover{
-    color: #ff6c85f0;
-    text-shadow: 2px 2px 3px #ff7f92d4;
-    border-color: #ff6c85f0;
-    box-shadow: 2px 4px 10px #ff7f92d4;
+    color: var(--neon-pink);
+    text-shadow: 2px 2px 3px var(--neon-pink);
+    border-color: var(--neon-pink);
+    box-shadow: 2px 4px 10px var(--neon-pink);
 }
 .pink-btn:active{
-    color: #ff003cc5;
-    text-shadow: 2px 2px 3px #ff0022c5;
-    border-color: #ff003cc5;
-    box-shadow: 2px 4px 10px #ff0022c5;
+    color: var(--pure-pink);
+    text-shadow: 2px 2px 3px var(--pure-pink);
+    border-color: var(--pure-pink);
+    box-shadow: 2px 4px 10px var(--pure-pink);
 }
