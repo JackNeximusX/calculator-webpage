@@ -1,92 +1,102 @@
-
-//call for display element
+// Call for display element
 const display = document.getElementById("display");
 
-//set display value to 0 on start
+// Set display value to 0 on start
 display.value = 0;
 
-// value x is created
-let x;
+// created x and operator
+let x = null;
+let operator = null;
 
 function addDigitCal(input) {
-
-    //if display is 0, replace 0 with input
+    // If display is 0, replace 0 with input
     if (display.value === "0") {
-        display.value = "";
         display.value = input;
     }
-    // otherwise add input.
+    // Otherwise, add input
     else {
         display.value += input;
     }
-
 }
 
 function addDecimal(input) {
-
-    //check if a decimal is already in this display
+    // Check if a decimal is already in the display
     let decimalCheck = (display.value.match(/\./g) || []).length >= 1;
 
-    // if there is a decimal, do nothing
-    if (decimalCheck) {
-        display.value = display.value
-    }
-    
-    //if not add one.
-    else {
+    // If there is no decimal, add one
+    if (!decimalCheck) {
         display.value += input; 
     }
-
+    // If there's already a decimal, do nothing
 }
 
 function operation(input) {
+    // check to see if there is already an operator  *,/,+,-, or **
+    let operationCheck = /[+\-*/]/.test(display.value);
 
-    // check for *,/,+,-, and **. somehow.
-    let operationCheck = (display.value.match(/\*/g) || []).length >= 1;
-
-    //if there is already an oporation do nothing
+    // if an operator is aleady used, do nothing
     if (operationCheck) {
-
-
-
+        return; // Prevent entering multiple operators in a row. thanks howtolearn javascript for dummies
     }
+    
+    // if there is no operator, set x to = display, then set oporator as input.
+    x = parseFloat(display.value);
+    operator = input;
 
-    // if else... add whatever operation and reset the display so you cannot see the past display value, but still have it avalable
-    else{
-
-    // save display.value to x
-    x = display.value;
-
-    //reset display
-    display.value = 0;
-
-    // add operation to end of input unless theres already one
-    x = x += input;
-
-    // with reseted display showing 0, add more numbers
+    // then reset display
     display.value = "0";
-
-    }
-
-    /*  
-        sidenote: maybe i could instead have x just be = the operation and just check to make sure its not = 2 or more,
-        then i can just calculate the first display (maybe have that in a variable) and the second display (also in a var)
-        and calucuate using x and set the display as that... idk.
-    */
-
 }
 
-function calculation(input){
+function calculation() {
+    // Only perform calculation if we have an operator and x doesnt = 0
+    if (x !== null && operator !== null) {
+        
+        // Convert second input to a number
+        let secondInput = parseFloat(display.value); 
+        let result;
 
-    // take x's value and add displays current value to the front, then calulate it and display it.
-    let answer = x + display.value;
-    display.value = answer;
+        // do the operator respectfuly
+        switch (operator) {
+            case '+':
+                result = x + secondInput;
+                break;
+            case '-':
+                result = x - secondInput;
+                break;
+            case '*':
+                result = x * secondInput;
+                break;
+            case '/':
+                result = x / secondInput;
+                break;
+            default:
+                result = secondInput;
+        }
+
+        // Display the result
+        display.value = result;
+
+        // then reset.
+        x = null;
+        operator = null;
+    }
 }
 
 function clearDisplay() {
     display.value = 0;
+    x = null; 
+    operator = null;
 }
 
-
-
-
+function deleteDigit() {
+    // Delete one digit from the right end of the display
+    if (display.value.length > 1) {
+        // Remove the last digit
+        display.value = display.value.slice(0, -1); 
+    } 
+    
+    else {
+    // Reset to 0 if only one character is left
+        display.value = "0"; 
+    }
+}
