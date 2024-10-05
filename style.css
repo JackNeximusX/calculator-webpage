@@ -25,16 +25,17 @@
 
 
 button{
-    box-shadow: 2px 4px 10px var(--light-blue);
+    box-shadow: 3px 4px 10px var(--light-blue);
     text-shadow: 2px 2px 3px var(--light-blue);
     color:var(--light-blue);
     border: 3px solid var(--light-blue);
-    border-radius: 50px;
-    padding: 5px;
-    margin: 2px 1px;
-    width: 85px;
-    height: 75px;
+    border-radius: 4vw;
+    padding: 3vh 3vw;
+    margin: 0.5vw 0.25vh;
+    width: 19vw;
+    height: 13vh;
     background-color: #00000000;
+    font-size: 5vh;
 }
 button:hover{
     text-shadow: 2px 2px 3px var(--neon-blue);
@@ -55,12 +56,11 @@ button:active{
     background-color: #1101012f;
     border: 3px solid var(--bright-white); 
     box-shadow: 2px 4px 10px var(--bright-white);
-    margin:auto;
-    display:block;
+    margin: 4vh auto;
     border-radius: 4px;
-    padding: 5px;
-    width: 380px;
-    height: 450px;
+    padding: 2vh 2vh ;
+    width: 82vw;
+    height: 82vh;
 }
 #display{
     color: var(--neon-gray);
@@ -70,10 +70,10 @@ button:active{
     text-shadow: 1px 1px 10px var(--neon-gray);
     border-radius: 10px;
     text-align: right;
-    height: 40px;
-    width: 350px;
-    margin-left: 5px;
-    font-size: 40px;
+    height: 4vh;
+    width: 78vw;
+    margin: 1vw 1vh;
+    font-size: 5vh;
 }
 html{
     background-color: #030110;

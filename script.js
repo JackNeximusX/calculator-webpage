@@ -8,8 +8,8 @@ function appendToDisplay(input) {
             display.value = "0.";
         }
         else{
-        display.value = "";
-        display.value += input;
+            display.value = "";
+            display.value += input;
         }
     }
     else {
