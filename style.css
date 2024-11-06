@@ -1,21 +1,21 @@
 :root{
-    --light-blue:#658eff;
-    --neon-blue:#a5d6ff;
+    --light-blue:#2f00ff;
+    --neon-blue:#abb2ff;
     --pure-blue:#0533ff;
 
 
-    --light-gold:#00ff6ee3;
+    --light-gold:#00ff6e;
     --neon-gold:#fbffc5;
-    --pure-gold:#22ff00ea;
+    --pure-gold:#22ff00;
 
 
     --light-pink:#ff366b;
     --neon-pink:#d2769f;
     --pure-pink:#ff2942;
 
-    --bright-white:#effeff;
-    --neon-gray:#cfdee3c3;
-    --steel-neon-blue:#a1c1ddf1;
+    --bright-white:#e4f7ff;
+    --neon-gray:#e2eaed;
+    --steel-neon-blue:#aedbf7f1;
 }
 
 
@@ -24,10 +24,11 @@
 
 
 button{
-    box-shadow: 3px 4px 10px var(--light-blue);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 3px 4px 10Bpx var(--light-blue);
     text-shadow: 2px 2px 3px var(--light-blue);
     color:var(--light-blue);
-    border: 1px solid var(--light-blue);
+    border: 3px solid var(--light-blue);
     border-radius: 4vw;
     padding: 3vh 3vw;
     margin: 0.5vw 0.25vh;
@@ -39,13 +40,13 @@ button{
 button:hover{
     text-shadow: 2px 2px 3px var(--neon-blue);
     color: var(--neon-blue);
-    border: 1px solid var(--neon-blue); 
+    border: 3px solid var(--neon-blue); 
     box-shadow: 2px 4px 10px var(--neon-blue);
 }
 button:active{
     text-shadow: 2px 2px 3px var(--pure-blue);
     color: var(--pure-blue);
-    border: 1px solid  var(--pure-blue); 
+    border: 3px solid  var(--pure-blue); 
     box-shadow: 2px 4px 10px var(--pure-blue);
 }
 #keys{
@@ -62,6 +63,7 @@ button:active{
     height: 82vh;
 }
 #display{
+    font-family: Brush Script MT;
     color: var(--neon-gray);
     background-color: rgba(10, 8, 8, 0.096);
     border: 3px solid var(--steel-neon-blue); 
@@ -75,7 +77,7 @@ button:active{
     font-size: 5vh;
 }
 html{
-    background-color: #030110;
+    background-color: #000000;
 }
 .preset-btn{
     color: var(--light-gold);
