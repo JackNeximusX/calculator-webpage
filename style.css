@@ -15,7 +15,6 @@
 
     --bright-white:#effeff;
     --neon-gray:#cfdee3c3;
-
     --steel-neon-blue:#a1c1ddf1;
 }
 
@@ -28,7 +27,7 @@ button{
     box-shadow: 3px 4px 10px var(--light-blue);
     text-shadow: 2px 2px 3px var(--light-blue);
     color:var(--light-blue);
-    border: 3px solid var(--light-blue);
+    border: 1px solid var(--light-blue);
     border-radius: 4vw;
     padding: 3vh 3vw;
     margin: 0.5vw 0.25vh;
@@ -40,13 +39,13 @@ button{
 button:hover{
     text-shadow: 2px 2px 3px var(--neon-blue);
     color: var(--neon-blue);
-    border: 3px solid var(--neon-blue); 
+    border: 1px solid var(--neon-blue); 
     box-shadow: 2px 4px 10px var(--neon-blue);
 }
 button:active{
     text-shadow: 2px 2px 3px var(--pure-blue);
     color: var(--pure-blue);
-    border: 3px solid  var(--pure-blue); 
+    border: 1px solid  var(--pure-blue); 
     box-shadow: 2px 4px 10px var(--pure-blue);
 }
 #keys{
@@ -78,37 +77,37 @@ button:active{
 html{
     background-color: #030110;
 }
-.gold-btn{
+.preset-btn{
     color: var(--light-gold);
     text-shadow: 2px 2px 3px var(--light-gold);
     border-color: var(--light-gold);
     box-shadow: 2px 4px 10px var(--light-gold);
 }
-.gold-btn:hover{
+.preset-btn:hover{
     color: var(--neon-gold);
     text-shadow: 2px 2px 3px var(--neon-gold);
     border-color: var(--neon-gold);
     box-shadow: 2px 4px 10px var(--neon-gold);
 }
-.gold-btn:active{
+.preset-btn:active{
     color: var(--pure-gold);
     text-shadow: 2px 2px 4px var(--pure-gold);
     border-color: var(--pure-gold);
     box-shadow: 2px 4px 12px var(--pure-gold);
 }
-.pink-btn{
+.operation-btn{
     color: var(--light-pink);
     text-shadow: 2px 2px 3px var(--light-pink);
     border-color: var(--light-pink);
     box-shadow: 2px 4px 10px var(--light-pink);
 }
-.pink-btn:hover{
+.operation-btn:hover{
     color: var(--neon-pink);
     text-shadow: 2px 2px 3px var(--neon-pink);
     border-color: var(--neon-pink);
     box-shadow: 2px 4px 10px var(--neon-pink);
 }
-.pink-btn:active{
+.operation-btn:active{
     color: var(--pure-pink);
     text-shadow: 2px 2px 3px var(--pure-pink);
     border-color: var(--pure-pink);
