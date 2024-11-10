@@ -25,7 +25,7 @@
 
 button{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    box-shadow: 3px 4px 10Bpx var(--light-blue);
+    box-shadow: 3px 4px 10px var(--light-blue);
     text-shadow: 2px 2px 3px var(--light-blue);
     color:var(--light-blue);
     border: 3px solid var(--light-blue);

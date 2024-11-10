@@ -26,14 +26,12 @@ function decimalCheck(input) {
 
 function operationCheck(input) {
     if (y !== null && operator !== null) {
-        // Perform the previous calculation before switching operator
         calculation();
     }
 
-    // Now set the new operator
     operator = input;
-    y = parseFloat(x);  // Store the current value of x in y
-    x = "0";  // Reset x for the next number
+    y = parseFloat(x); 
+    x = "0"; 
     display.value = x;
 }
 
@@ -59,11 +57,10 @@ function calculation() {
                 result = secondInput;
         }
 
-        // Update display with result and set x to the result
         display.value = result;
         x = result.toString();
-        y = result;  // Keep the result in y for the next operation
-        operator = null;  // Reset operator after calculation
+        y = result;
+        operator = null;
     }
 }
 
