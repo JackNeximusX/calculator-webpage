@@ -1,5 +1,3 @@
-
-
 const display = document.getElementById("display");
 display.value = "0";
 
@@ -9,83 +7,97 @@ let y = null;
 let operator = null;
 let checkValue = null;
 
+// Keep variables grouped for reference
+let variables = [firstValue, secondValue, y, operator, checkValue];
 
-
-// when button with this function is clicked
+    // Handles adding digits to the current value.
+    // If `firstValue` is null or not a valid number, it initializes it as "0".
+    // Appends input to `firstValue` and updates the display.
+    // Prevents exceeding a maximum of 16 digits.
+ 
 function addDigit(input) {
-    console.log(firstValue);
-    //change firstvalue into a string if firstvalue = null
-    if(firstValue === null || firstValue === 0){
-        firstValue = "0"
-        console.log(firstValue);
+
+    // Initialize `firstValue` as "0" if it's null or not a number
+    if (!Number.isFinite(firstValue) || firstValue === null) {
+        firstValue = "0";
     }
 
-    // if the current value has a string value of 0 or is equal to 0
+    // If the current value is "0", replace it; otherwise, append input
     if (firstValue === "0") {
-        //give the string value of that input
         firstValue = input;
     } else {
-        //add the string value of that input
         firstValue += input;
     }
-    // display the string value of the current value
-    display.value = firstValue;
 
-    // set y as the string value of the current value
+    // Restrict the value to a maximum of 16 digits
+    if (firstValue.length >= 16) {
+        alert("Too many digits");
+        firstValue = firstValue.slice(0, -1);
+    }
+
+    // Update the display and set `y` to the string representation of `firstValue`
+    display.value = firstValue;
     y = firstValue;
 
-    // set the current value of firstValue as a number
+    // Convert `firstValue` to a number for later calculations
     firstValue = parseFloat(firstValue);
+    console.log
 }
 
+//  Handles adding a decimal point to the current value.
+//  Ensures that only one decimal is present in `firstValue`.
+ 
 function decimalCheck(input) {
 
-    //if firstValue is a number change it to a string
-    if(Number.isFinite(firstValue)){
+    // Convert `firstValue` to a string if it's a finite number
+    if (Number.isFinite(firstValue)) {
         firstValue = firstValue.toString();
     }
 
-    //if first calue does not already have a decimal
+    // Add a decimal point if it doesn't already exist
     if (!firstValue.includes(".")) {
-        //and if first value is equal to zero and the input does not equal .
-        if ( firstValue === "0" && input !== ".") {
-            //replace current value with input
-            firstValue = input;
+        if (firstValue === "0" && input !== ".") {
+            firstValue = input; // Replace "0" if input isn't "."
         } else {
-            //anything else just add input
-            firstValue += input;
+            firstValue += input; // Append the input
         }
-        //then display firstValue
-        display.value = firstValue; 
-        //set y as string value of firstValue
+
+        // Update the display and set `y` to the string representation of `firstValue`
+        display.value = firstValue;
         y = firstValue;
     }
-    //change firstvalue back to a number
+
+    // Convert `firstValue` back to a number
     firstValue = parseFloat(firstValue);
 }
 
+
+    // Sets the operator for the calculation.
+    // If `y` and an operator are already set, performs a calculation first.
+ 
 function operationCheck(input) {
     if (y !== null && operator !== null) {
         calculation();
     }
 
-    if (currentValue !== "0"){
+    if (firstValue !== "0") {
         operator = input;
-        y = parseFloat(x); 
+        y = parseFloat(display.value); 
         firstValue = "0"; 
         display.value = y;
-        console.log("firstValue not 0");
-    }
-    else{
+    } else {
         display.value = y;
     }
-    
 }
+
+//Performs the calculation based on the selected operator and updates the display.
 
 function calculation() {
     if (y !== null && operator !== null) {
-        let secondInput = parseFloat(x);
+        let secondInput = parseFloat(display.value);
         let result;
+
+        // Perform the calculation based on the operator
         switch (operator) {
             case '+':
                 result = y + secondInput;
@@ -103,26 +115,36 @@ function calculation() {
                 result = secondInput;
         }
 
+        // Update the display and reset variables for further operations
+
         display.value = result;
-       firstValue = result.toString();
+        firstValue = result.toString();
         y = result;
         operator = null;
     }
 }
 
+
+    // Clears the display and resets all variables to their initial state.
+ 
 function clearDisplay() {
-   firstValue = "0";
+    firstValue = "0";
     display.value = "0";
     y = null;
     operator = null;
 }
 
+
+    // Deletes the last digit of the current value.
+    // If only one digit remains, resets `firstValue` to "0".
+
 function deleteDigit() {
     if (firstValue.length > 1) {
-       firstValue = firstValue.slice(0, -1);
+        firstValue = firstValue.slice(0, -1);
     } else {
-       firstValue = "0";
+        firstValue = "0";
     }
     display.value = firstValue;
 }
-// TODO: fix multi opporation bug, and make currentValue number
+
+// TODO: Fix multi-operation bug and ensure `firstValue` is treated as a number when appropriate
