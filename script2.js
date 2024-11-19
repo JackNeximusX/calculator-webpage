@@ -30,6 +30,7 @@ function addDecimal(input) {
     // If there's already a decimal, do nothing
 }
 
+
 function operation(input) {
     // check to see if there is already an operator  *,/,+,-, or **
     let operationCheck = /[+\-*/]/.test(display.value);
@@ -100,3 +101,5 @@ function deleteDigit() {
         display.value = "0"; 
     }
 }
+
+
