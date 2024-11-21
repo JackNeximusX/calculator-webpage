@@ -1,105 +1,125 @@
-// Call for display element
+// Initial variable declarations
 const display = document.getElementById("display");
+display.value = "0";
 
-// Set display value to 0 on start
-display.value = 0;
-
-// created x and operator
-let x = null;
+let firstValue = null;
+let secondValue = null;
+let y = null;
 let operator = null;
+let checkValue = null;
+let currentValue = 0;
 
-function addDigitCal(input) {
-    // If display is 0, replace 0 with input
-    if (display.value === "0") {
-        display.value = input;
-    }
-    // Otherwise, add input
-    else {
-        display.value += input;
-    }
-}
+// Keeps variables grouped for reference
+let variables = [firstValue, secondValue, y, operator, checkValue];
 
-function addDecimal(input) {
-    // Check if a decimal is already in the display
-    let decimalCheck = (display.value.match(/\./g) || []).length >= 1;
-
-    // If there is no decimal, add one
-    if (!decimalCheck) {
-        display.value += input; 
-    }
-    // If there's already a decimal, do nothing
-}
-
-
-function operation(input) {
-    // check to see if there is already an operator  *,/,+,-, or **
-    let operationCheck = /[+\-*/]/.test(display.value);
-
-    // if an operator is aleady used, do nothing
-    if (operationCheck) {
-        return; // Prevent entering multiple operators in a row. thanks howtolearn javascript for dummies
-    }
-    
-    // if there is no operator, set x to = display, then set oporator as input.
-    x = parseFloat(display.value);
-    operator = input;
-
-    // then reset display
-    display.value = "0";
-}
-
-function calculation() {
-    // Only perform calculation if we have an operator and x doesnt = 0
-    if (x !== null && operator !== null) {
-        
-        // Convert second input to a number
-        let secondInput = parseFloat(display.value); 
-        let result;
-
-        // do the operator respectfuly
-        switch (operator) {
-            case '+':
-                result = x + secondInput;
-                break;
-            case '-':
-                result = x - secondInput;
-                break;
-            case '*':
-                result = x * secondInput;
-                break;
-            case '/':
-                result = x / secondInput;
-                break;
-            default:
-                result = secondInput;
+// Handles adding digits to the current value.
+function addDigit(input) {
+    if (currentValue === 0) {
+        // Convert `firstValue` to a string if it's a finite number
+        if (!Number.isFinite(firstValue)) {
+            firstValue = "0"; 
+        } else {
+            firstValue = firstValue.toString();
         }
 
-        // Display the result
-        display.value = result;
+        // Handle appending or replacing digits
+        if (firstValue === "0" && input !== ".") {
+            firstValue = input; // Replace "0" if input isn't a decimal
+        } else {
+            firstValue += input; // Append the input
+        }
 
-        // then reset.
-        x = null;
-        operator = null;
+        display.value = firstValue; // Update the display
+        y = firstValue;
+        console.log(`addDigit - firstValue: ${firstValue}`);
+    } else if (currentValue === 1) {
+        // Similar logic for `secondValue`
+        if (!Number.isFinite(secondValue)) {
+            secondValue = "0"; 
+        } else {
+            secondValue = secondValue.toString();
+        }
+
+        if (secondValue === "0" && input !== ".") {
+            secondValue = input; 
+        } else {
+            secondValue += input; 
+        }
+
+        display.value = secondValue; 
+        y = secondValue;
+        console.log(`addDigit - secondValue: ${secondValue}`);
     }
 }
 
+// Handles adding a decimal point to the current value.
+function decimalCheck(input) {
+    if (currentValue === 0) {
+        // Convert `firstValue` to a string if it's a finite number
+        if (Number.isFinite(firstValue)) {
+            firstValue = firstValue.toString();
+        }
+
+        // Add a decimal point if it doesn't already exist
+        if (!firstValue.includes(".")) {
+            if (firstValue === "0" && input !== ".") {
+                firstValue = input; // Replace "0" if input isn't "." 
+            } else {
+                firstValue += input; // Append the input
+            }
+
+            display.value = firstValue;
+            y = firstValue;
+
+            // Remove 0 from the end
+            display.value = display.value.slice(0, -1);
+        }
+    } else if (currentValue === 1) {
+        // Similar logic for `secondValue`
+        if (Number.isFinite(secondValue)) {
+            secondValue = secondValue.toString();
+        }
+
+        if (!secondValue.includes(".")) {
+            if (secondValue === "0" && input !== ".") {
+                secondValue = input; // Replace "0" if input isn't "."
+            } else {
+                secondValue += input; // Append the input
+            }
+
+            display.value = secondValue;
+            y = secondValue;
+
+            // Remove 0 from the end
+            display.value = display.value.slice(0, -1);
+        }
+    }
+}
+
+// Clear the display and reset variables
 function clearDisplay() {
-    display.value = 0;
-    x = null; 
+    firstValue = "0";
+    display.value = "0";
+    y = null;
     operator = null;
 }
 
+// Deletes the last digit of the current value.
 function deleteDigit() {
-    // Delete one digit from the right end of the display
-    if (display.value.length > 1) {
-        // Remove the last digit
-        display.value = display.value.slice(0, -1); 
-    } 
-    
-    else {
-    // Reset to 0 if only one character is left
-        display.value = "0"; 
+    console.log(firstValue);
+
+    if (Number.isFinite(firstValue)) {
+        firstValue = firstValue.toString();
     }
+
+    if (firstValue.length > 1) {
+        firstValue = firstValue.slice(0, -1);
+    } else {
+        firstValue = "0";
+    }
+    display.value = firstValue;
+
+    firstValue = firstValue;
 }
 
-
+// TODO: Fix multi-operation bug and ensure `firstValue` is treated as a number when appropriate
