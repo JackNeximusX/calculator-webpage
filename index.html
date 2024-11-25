@@ -14,25 +14,25 @@
         <div id="container" class="col-10">
             <div id="keys" class="row">
                 <button onclick="addDigit('00')" class="preset-btn">00</button>
-                <button onclick="decimalCheck('.0')" class="preset-btn">.</button>
-                <button onclick="decimalCheck('3.14')" class="preset-btn">π</button>
-                <button onclick="operationCheck('-')" class="operation-btn">-</button>
+                <button onclick="checkDecimal('.')" class="preset-btn">.</button>
+                <button onclick="checkDecimal('3.14')" class="preset-btn">π</button>
+                <button onclick="checkOperator('-')" class="operation-btn">-</button>
                 <button onclick="addDigit('7')">7</button>
                 <button onclick="addDigit('8')">8</button>
                 <button onclick="addDigit('9')">9</button>
-                <button onclick="operationCheck('/')" class="operation-btn">/</button>
+                <button onclick="checkOperator('/')" class="operation-btn">/</button>
                 <button onclick="addDigit('4')">4</button>
                 <button onclick="addDigit('5')">5</button>
                 <button onclick="addDigit('6')">6</button>
-                <button onclick="operationCheck('*')" class="operation-btn">x</button>
+                <button onclick="checkOperator('*')" class="operation-btn">x</button>
                 <button onclick="addDigit('1')">1</button>
                 <button onclick="addDigit('2')">2</button>
                 <button onclick="addDigit('3')">3</button>
-                <button onclick="operationCheck('+')" class="operation-btn">+</button>
+                <button onclick="checkOperator('+')" class="operation-btn">+</button>
                 <button onclick="clearDisplay()" class="preset-btn">C</button>        
                 <button onclick="addDigit('0')">0</button>      
                 <button onclick="deleteDigit()" class="preset-btn">D</button>              
-                <button onclick="calculation()" class="operation-btn">=</button>           
+                <button onclick="calculate()" class="operation-btn">=</button>           
 
             </div>
             
