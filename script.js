@@ -1,23 +1,21 @@
 const display = document.getElementById("display");
 
 let currentOpr = null;
-let currentSide = 0;
-let LHS = null;
-let RHS = null;
+let currentValue = null;
+let firstValue = null;
+let restart = 0;
 display.value = "0";
 
 
 //check what side of the operation we currently on 
-function checkSide(){
-    if(currentSide === 0){
-        LHS = parseFloat(display.value);
-    } 
-    if(currentSide === 1){
-        RHS = parseFloat(display.value);
-    }
-}
+
 
 function addDigit(input){
+
+    if(restart === 1){
+        display.value = "";
+        restart = 0;
+    }
 
     if(display.value === "0"){
         display.value = input;
@@ -25,8 +23,7 @@ function addDigit(input){
         display.value += input;
     }
 
-    checkSide();
-    console.log(LHS,RHS);
+    console.log( firstValue, currentOpr, display.value, currentValue);
 
 }
 
@@ -35,62 +32,70 @@ function addDecimal(input){
     if(!display.value.includes(".")){
         display.value += input;//fix decimal
     }
-    
-    checkSide();
 
 }
 
 function checkOperator(input){
-    if(currentOpr === null && LHS !== null){
+    if(currentOpr === null && display.value !== null){
         currentOpr = input;
-        currentSide = 1;
-        display.value = "0";
+        firstValue = parseFloat(display.value);
+        restart = 1;
     }
-    console.log(currentOpr);
+
+    if(currentValue !== null && firstValue !== null){
+        currentValue = null;
+    }
+
+    console.log( firstValue, currentOpr, display.value, currentValue);
 }
 
 
 function calculate(){
+    if(currentValue !== null){
+        firstValue = currentValue;
+    }
+    if(firstValue, currentOpr, display.value){
 
-    if(LHS, currentOpr, RHS){
         switch(currentOpr){
             case "+":
-                result = LHS + RHS;
+                result = firstValue + parseFloat(display.value);
                 break;
             case "-":
-                result = LHS - RHS;
+                result = firstValue - parseFloat(display.value);
                 break;
             case "*":
-                result = LHS * RHS;
+                result = firstValue * parseFloat(display.value);
                 break;
             case "/":
-                result = LHS / RHS;
+                result = firstValue / parseFloat(display.value);
                 break;
             default:
                 display.value = "ERROR";
                 return;
         }
-
+        restart = 1;
         display.value = result;
-        LHS = result;
-        currentValue = 1;
-        RHS = null;
+        currentValue = result;
+        firstValue = null;
         currentOpr = null;
+
+        console.log( firstValue, currentOpr, display.value, currentValue);
+
     }
 }
 
 
-//set a variable as a operator and get the ready for second half of equasion
+//set a variable as a operator and get the ready for second half of equaion
 //if both all parts of the equasion is ready run the equasion
 
 //is clear is pressed clear everything
 function clearDisplay(){
     display.value = "0";
-    currentSide = 0;
-    LHS = null;
-    RHS = null;
+    firstValue = null;
+    currentValue = null;
     currentOpr = null;
 }
+
 //if d is pressed delete on character
 function deleteDigit(){
     display.value = display.value.slice(0,-1);
