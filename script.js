@@ -3,7 +3,7 @@ const display = document.getElementById("display");
 let currentOpr = null;
 let currentValue = null;
 let firstValue = null;
-let restart = 0;
+let restart = false;
 display.value = "0";
 
 
@@ -12,9 +12,9 @@ display.value = "0";
 
 function addDigit(input){
 
-    if(restart === 1){
+    if(restart === true){
         display.value = "";
-        restart = 0;
+        restart = false;
     }
 
     if(display.value === "0"){
@@ -39,12 +39,12 @@ function checkOperator(input){
     if(currentOpr === null && display.value !== null){
         currentOpr = input;
         firstValue = parseFloat(display.value);
-        restart = 1;
+        restart = true;
     }
 
-    if(currentValue !== null && firstValue !== null){
-        currentValue = null;
-    }
+    // if(currentValue !== null && firstValue !== null){
+    //     currentValue = null;
+    // }
 
     console.log( firstValue, currentOpr, display.value, currentValue);
 }
@@ -73,7 +73,7 @@ function calculate(){
                 display.value = "ERROR";
                 return;
         }
-        restart = 1;
+        restart = true;
         display.value = result;
         currentValue = result;
         firstValue = null;
@@ -94,6 +94,7 @@ function clearDisplay(){
     firstValue = null;
     currentValue = null;
     currentOpr = null;
+    restart = false;
 }
 
 //if d is pressed delete on character
