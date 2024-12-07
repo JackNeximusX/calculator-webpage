@@ -42,9 +42,9 @@ function checkOperator(input){
         restart = true;
     }
 
-    // if(currentValue !== null && firstValue !== null){
-    //     currentValue = null;
-    // }
+    if(currentValue !== null && firstValue !== null){
+        currentValue = firstValue;
+    }
 
     console.log( firstValue, currentOpr, display.value, currentValue);
 }
