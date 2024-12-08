@@ -2,7 +2,6 @@ const display = document.getElementById("display");
 
 let currentOpr = null;
 let currentValue = null;
-let firstValue = null;
 let restart = false;
 display.value = "0";
 
@@ -23,7 +22,7 @@ function addDigit(input){
         display.value += input;
     }
 
-    console.log( firstValue, currentOpr, display.value, currentValue);
+    console.log(currentValue, currentOpr, display.value);
 
 }
 
@@ -38,48 +37,42 @@ function addDecimal(input){
 function checkOperator(input){
     if(currentOpr === null && display.value !== null){
         currentOpr = input;
-        firstValue = parseFloat(display.value);
+        currentValue = parseFloat(display.value);
         restart = true;
     }
 
-    if(currentValue !== null && firstValue !== null){
-        currentValue = firstValue;
-    }
-
-    console.log( firstValue, currentOpr, display.value, currentValue);
+    console.log(currentValue, currentOpr, display.value);
 }
 
 
 function calculate(){
-    if(currentValue !== null){
-        firstValue = currentValue;
-    }
-    if(firstValue, currentOpr, display.value){
+
+    if(currentValue, currentOpr, display.value){
 
         switch(currentOpr){
             case "+":
-                result = firstValue + parseFloat(display.value);
+                result = currentValue + parseFloat(display.value);
                 break;
             case "-":
-                result = firstValue - parseFloat(display.value);
+                result = currentValue - parseFloat(display.value);
                 break;
             case "*":
-                result = firstValue * parseFloat(display.value);
+                result = currentValue * parseFloat(display.value);
                 break;
             case "/":
-                result = firstValue / parseFloat(display.value);
+                result = currentValue / parseFloat(display.value);
                 break;
             default:
                 display.value = "ERROR";
                 return;
         }
+
         restart = true;
         display.value = result;
         currentValue = result;
-        firstValue = null;
         currentOpr = null;
 
-        console.log( firstValue, currentOpr, display.value, currentValue);
+        console.log(currentValue, currentOpr, display.value);
 
     }
 }
@@ -91,7 +84,6 @@ function calculate(){
 //is clear is pressed clear everything
 function clearDisplay(){
     display.value = "0";
-    firstValue = null;
     currentValue = null;
     currentOpr = null;
     restart = false;
