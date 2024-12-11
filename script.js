@@ -1,8 +1,7 @@
 const display = document.getElementById("display");
 
-let currentOpr = null;
-let currentValue = null;
-let restart = false;
+let currentOpr = null;//string
+let currentValue = 0;//number
 display.value = "0";
 
 
@@ -10,17 +9,29 @@ display.value = "0";
 
 
 function addDigit(input){
+    
+    console.log("" === currentOpr);
+    console.log(currentValue == display.value);
 
-    if(restart === true){
-        display.value = "";
-        restart = false;
-    }
-
-    if(display.value === "0"){
+    if (currentOpr && currentValue == display.value){
         display.value = input;
+    } else if(display.value === "0"){
+        display.value = input;
+    } else if(!currentOpr && currentValue == display.value){
+        display.value = "0";//sd
     } else {
         display.value += input;
     }
+
+    // == verses two difreent types
+    if (!currentOpr && currentValue != display.value) {
+        currentValue = parseFloat(display.value);
+    }
+    //
+    // if((!currentOpr && currentValue) || (currentValue === 0)){
+    //     currentValue = parseFloat(display.value);
+    // }
+
 
     console.log(currentValue, currentOpr, display.value);
 
@@ -29,16 +40,15 @@ function addDigit(input){
 function addDecimal(input){
     //make sure there is not already a decimal.
     if(!display.value.includes(".")){
-        display.value += input;//fix decimal
+        display.value += input;
     }
 
 }
 
-function checkOperator(input){
-    if(currentOpr === null && display.value !== null){
+function addOperator(input){
+    if(currentOpr === null){
         currentOpr = input;
-        currentValue = parseFloat(display.value);
-        restart = true;
+        // currentValue = parseFloat(display.value);
     }
 
     console.log(currentValue, currentOpr, display.value);
@@ -67,7 +77,6 @@ function calculate(){
                 return;
         }
 
-        restart = true;
         display.value = result;
         currentValue = result;
         currentOpr = null;
@@ -86,11 +95,9 @@ function clearDisplay(){
     display.value = "0";
     currentValue = null;
     currentOpr = null;
-    restart = false;
 }
 
 //if d is pressed delete on character
 function deleteDigit(){
     display.value = display.value.slice(0,-1);
-    checkSide();
 }
